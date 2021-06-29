@@ -3,8 +3,11 @@ This file contains the python codes for Table 1.
 Part I are definition of functions.
 Part II produce results in Table 1.
 
-Note that each run may produce different (but similar) results due to the 
+Note that 
+1. Each run may produce different (but similar) results due to the 
 randomness of the generated processes.
+2. You need to mannually vary the value of true_alpha in part 2 to get all the results in Table 1,
+e.g., set it as 0.2, 0.5, and 0.8 separately and re-run the code.
 """
 
 import numpy as np
