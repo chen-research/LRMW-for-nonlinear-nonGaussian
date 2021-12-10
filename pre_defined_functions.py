@@ -1,5 +1,5 @@
 ##########################
-#This file defines the functions needed for computations in Table 1 and Table 2
+#This file defines the functions needed for computations in Table1.py, Table2.py, and Figure123-Table34.py
 ##########################
 
 import numpy as np
@@ -409,7 +409,7 @@ def FARIMA_gen(alpha = 0.5, Q_d=0.1, beta_length=100, length=5000, num=100):
 
 
 #LMSV generateor
-def LMSV_gen(alpha = 0.5, sigma=0.8, beta_length=100, length=5000, num=100):
+def LMSV_gen(alpha = 0.5, sigma=0.8, beta_length=100, length=5000, num=100, epsilon_sd=5):
     """
     This function generates the LMSV process with {beta[k]} as the MA coeffcients of FARIMA(0,alpha/2,0).
     The power spectrum of the generated process is proportional to f^(-alpha) when f -> 0.
@@ -429,6 +429,7 @@ def LMSV_gen(alpha = 0.5, sigma=0.8, beta_length=100, length=5000, num=100):
     beta_length:int, the length of beta.
     length:int, the length of the generated process.
     num:int, number of processes to be generated.
+    epsilon_sd:float, SD of epsilon_t used to generate the FARIMA(0, alpha/2, 0) process.
     
     Ouputs.
     -------
@@ -446,7 +447,7 @@ def LMSV_gen(alpha = 0.5, sigma=0.8, beta_length=100, length=5000, num=100):
     beta_reverse = np.flip(beta,axis=0)
     
     #x will store the FARIMA(0,alpha/2,0) process Xt.
-    epsilon = np.random.normal(loc=0, scale=7, size=(num,length))
+    epsilon = np.random.normal(loc=0, scale=epsilon_sd, size=(num,length))
     x = np.zeros((num,length))
     for t in range(1,beta_length):
         x[:,t] = np.sum(beta_reverse[-(t+1):]*epsilon[:,0:t+1],axis=1)  
