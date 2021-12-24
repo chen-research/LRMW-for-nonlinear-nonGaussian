@@ -530,8 +530,7 @@ def alpha_est(true_alpha, data_len, filter_name='db1',
               num=5, low_scale=5, high_scale=10, generator='linear'):
     """
     This function outputs mean and sd of the estimated alphas. These alphas are
-    from a number of simulated color noises with the same alpha. The 1/f process generator, f_alpha,
-    written by John Burkardt is used (Slow).
+    from a number of simulated color noises with the same alpha. 
     
     Inputs.
     ---------
@@ -657,8 +656,7 @@ def alpha_est_for_LMSV(true_alpha, sigma_ep, data_len, filter_name='db1',
               num=5, low_scale=5, high_scale=10):
     """
     This function outputs mean and sd of the estimated alphas. These alphas are
-    from a number of simulated color noises with the same alpha. The 1/f process generator, f_alpha,
-    written by John Burkardt is used (Slow).
+    from a number of simulated color noises with the same alpha. 
     
     Inputs.
     ---------
